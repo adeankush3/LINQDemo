@@ -11,7 +11,7 @@ namespace LINQDemoExample
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To LINQDemo Program");
-            List<ProductReview> productReviews = new List<ProductReview>()
+            List<ProductReview> productReviewsList = new List<ProductReview>()
             {
                 new ProductReview() { ProductId = 1, UserId = 1, Rating = 5, Review = "Good", IsLike = true },
                 new ProductReview() { ProductId = 2, UserId = 1, Rating = 5, Review = "Good", IsLike = true },
@@ -39,10 +39,13 @@ namespace LINQDemoExample
                 new ProductReview() { ProductId = 24, UserId = 10, Rating = 4, Review = "nice", IsLike = true },
                 new ProductReview() { ProductId = 25, UserId = 10, Rating = 5, Review = "bad", IsLike = false }
             };
-            foreach(var list in productReviews)
+            foreach (var list in productReviewsList)
             {
                 Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
             }
+            Management management = new Management();
+            management.Top3Products(productReviewsList);
+            
         }
     }
 }
