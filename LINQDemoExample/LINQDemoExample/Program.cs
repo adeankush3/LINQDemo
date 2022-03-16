@@ -47,6 +47,7 @@ namespace LINQDemoExample
             //management.Top3Products(productReviewsList);
             //management.SelectedRecords(productReviewsList);
             management.RetriveCountOfRecord(productReviewsList);
+            management.ShowProductIDAndReview(productReviewsList);
 
 
         }

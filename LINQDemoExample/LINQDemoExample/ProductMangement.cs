@@ -51,5 +51,21 @@ namespace LINQDemoExample
                 Console.WriteLine(" Product Id : {0} \t ReviewCount : {1}", list.ProductId, list.count);
             }
         }
+        public void ShowProductIDAndReview(List<ProductReview> listProductReview)
+        {
+            
+           var result = (from prod in listProductReview
+                         orderby (prod.ProductId)
+                      select prod).ToList();
+
+            Console.WriteLine("\n - - -  Display productID , Reviews from all records  - - -");
+            Console.WriteLine(" Product Id \t Review");
+
+            foreach (ProductReview productReview in result)
+            {
+                Console.WriteLine(" {0}\t\t{1}", productReview.ProductId, productReview.Review);
+            }
+        }
+
     }
 }
