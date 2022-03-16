@@ -41,13 +41,15 @@ namespace LINQDemoExample
             };
             foreach (var list in productReviewsList)
             {
+                
                 Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
             }
             ProductManagement management = new ProductManagement();
-            //management.Top3Products(productReviewsList);
-            //management.SelectedRecords(productReviewsList);
+            management.Top3Products(productReviewsList);
+            management.SelectedRecords(productReviewsList);
             management.RetriveCountOfRecord(productReviewsList);
             management.ShowProductIDAndReview(productReviewsList);
+            management.SkipTop5Records(productReviewsList);
 
 
         }
