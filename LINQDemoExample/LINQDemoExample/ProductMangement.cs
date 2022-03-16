@@ -10,12 +10,22 @@ namespace LINQDemoExample
     public class ProductManagement
     {
         public readonly DataTable dataTable = new DataTable();
+
+        public void DisplayAllProducts(List<ProductReview> ProductList)
+        {
+            Console.WriteLine("\n - - -  Displaying All products - - - ");
+            foreach (ProductReview p in ProductList)
+            {
+                Console.WriteLine("Product Id : {0}\tUser Id : {1}\tRating : {2}\tReview : {3}\tIsLike : {4}", p.ProductId, p.UserId, p.Rating, p.Review, p.IsLike);
+            }
+        }
         public void Top3Products(List<ProductReview> listProductReview)
+
         {
             var recordData = (from productReview in listProductReview
                               orderby productReview.Rating descending
                               select productReview).Take(3);
-            Console.WriteLine(" displaying Top 3 products");
+            Console.WriteLine("\n - - -  Displaying Top 3 products - - - ");
 
             foreach (var list in recordData)
             {
@@ -34,8 +44,8 @@ namespace LINQDemoExample
                              where (productReview.ProductId == 1 || productReview.ProductId == 4 || productReview.ProductId == 9)
                              && productReview.Rating > 3
                              select productReview;
-            Console.WriteLine("Selected Record Display Rating");
-            
+            Console.WriteLine("\n - - - Displaying Records with 3+ rating for given productId - - -");
+
 
             foreach (var list in recordData)
             {
@@ -44,10 +54,10 @@ namespace LINQDemoExample
         }
         public void RetriveCountOfRecord(List<ProductReview> listProductReview)
         {
-            Console.WriteLine("\n - - -  Retrieve count of review present for each productID - - - ");
+            
             var recordData = listProductReview.GroupBy(x => x.ProductId).Select(x => new { ProductId = x.Key, count = x.Count() });
 
-            Console.WriteLine(" ProductId\tcount");
+            Console.WriteLine("\n - - -  Retrieve count of review present for each productID - - - ");
             foreach (var list in recordData)
             {
                 Console.WriteLine(" Product Id : {0} \t ReviewCount : {1}", list.ProductId, list.count);

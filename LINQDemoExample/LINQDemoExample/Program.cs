@@ -39,12 +39,13 @@ namespace LINQDemoExample
                 new ProductReview() { ProductId = 24, UserId = 21, Rating = 4, Review = "nice", IsLike = true },
                 new ProductReview() { ProductId = 25, UserId = 23, Rating = 5, Review = "bad", IsLike = false }
             };
-            foreach (var list in productReviewsList)
-            {
+            //foreach (var list in productReviewsList)
+            //{
                 
-                Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
-            }
+            //    Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
+            //}
             ProductManagement management = new ProductManagement();
+            management.DisplayAllProducts(productReviewsList);
             management.Top3Products(productReviewsList);
             management.SelectedRecords(productReviewsList);
             management.RetriveCountOfRecord(productReviewsList);
