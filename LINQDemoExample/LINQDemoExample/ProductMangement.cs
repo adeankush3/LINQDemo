@@ -15,12 +15,25 @@ namespace LINQDemoExample
             var recordData = (from productReview in listProductReview
                               orderby productReview.Rating descending
                           select productReview).Take(3);
-
             Console.WriteLine(" displaying Top 3 products");
 
             foreach (var list in recordData)
             {
-                Console.WriteLine("Product Id : {0}\tUser Id : {1}\tRating : {2}\tReview : {3}\tIsLike : {4}", list.ProductId, list.UserId, list.Rating, list.Review, list.IsLike);
+                Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
+            }
+        }
+        public void SelectedRecords(List<ProductReview> listProductReview)
+        {
+            var recordData = from productReview in listProductReview
+                             where (productReview.ProductId == 1 && productReview.Rating > 3) ||
+                             (productReview.ProductId == 4 && productReview.Rating > 3) ||
+                             (productReview.ProductId == 9 && productReview.Rating > 3)
+                             select productReview;
+            Console.WriteLine("Selected Record Display Rating");
+
+            foreach (var list in recordData)
+            {
+                Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
             }
         }
     }

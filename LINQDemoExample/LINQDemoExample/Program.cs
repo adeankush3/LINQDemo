@@ -43,8 +43,9 @@ namespace LINQDemoExample
             {
                 Console.WriteLine("ProductId-" + list.ProductId + "" + "UserId-" + list.UserId + "" + "Rating-" + list.Rating + "" + "Review-" + list.Review + "" + "IsLike-" + list.IsLike);
             }
-            Management management = new Management();
+            ProductManagement management = new ProductManagement();
             management.Top3Products(productReviewsList);
+            management.SelectedRecords(productReviewsList);
             
         }
     }
